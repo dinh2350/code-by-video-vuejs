@@ -92,14 +92,43 @@ Vue.createApp({
       count: 0,
       lastName: "Nguyễn",
       firstName: "Phong Hào",
+      fullDataName: "",
     };
   },
+  /**
+   * watch dùng để xử lý :
+   *    - theo dõi 1 data duy nhất
+   */
+  watch: {
+    count(newValue, oldValue) {
+      console.log("newValue : ", newValue);
+      console.log("oldValue : ", oldValue);
+      if (newValue > 10) {
+        this.count = 0;
+      }
+    },
+    lastName(newValue) {
+      this.fullDataName = newValue + " " + this.firstName;
+    },
+    firstName(newValue) {
+      this.fullDataName = this.lastName + " " + newValue;
+    },
+  },
+  /**
+   * computed dùng để xử lý :
+   *    - tính toán nhiều data và cho ra một kết quả để hiển thị lên màn hình
+   */
   computed: {
     fullName() {
       console.log("run fullName");
       return this.lastName + " " + this.firstName;
     },
   },
+  /**
+   * methods dùng để xử lý :
+   *    - envents
+   *    - function ( tính năng trên trang web )
+   */
   methods: {
     // getFullName() {
     //   console.log("run getFullName");
@@ -111,3 +140,44 @@ Vue.createApp({
     },
   },
 }).mount("#computed-and-watchers");
+
+Vue.createApp({
+  data() {
+    return {
+      active: false,
+      styleForP: {
+        backgroundColor: "red",
+        color: "yellow",
+        "font-size": "50px",
+      },
+      styleForText: {
+        "text-align": "left",
+      },
+    };
+  },
+  methods: {
+    hanldStyle() {
+      this.styleForP.color = "blue";
+    },
+    handleActive() {
+      this.active = true;
+    },
+  },
+}).mount("#styling");
+
+Vue.createApp({
+  data() {
+    return {
+      isLogin: false,
+      nameHero: "",
+    };
+  },
+  methods: {
+    handleLogin() {
+      this.isLogin = true;
+    },
+    handleNameHero(nameHero) {
+      this.nameHero = nameHero;
+    },
+  },
+}).mount("#directive");
