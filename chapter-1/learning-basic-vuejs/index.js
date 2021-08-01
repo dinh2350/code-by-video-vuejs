@@ -170,6 +170,33 @@ Vue.createApp({
     return {
       isLogin: false,
       nameHero: "",
+      blackpink: [
+        {
+          name: "Lisa",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/0/00/Blackpink_Lisa_190621_2.png",
+        },
+        {
+          name: "Rose",
+          image:
+            "http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRFMa9nywjuWgjQe8jO3UP9A29ggO6s0K8iEXAdrvCMcj5TSvxglNEnXaf-68OW",
+        },
+        {
+          name: "jennie",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/3/3b/191001_Jennie_Kim_attends_CHANEL_Show_at_Paris_Fashion_Week_2019_%281%29.jpg",
+        },
+        {
+          name: "Jisoo",
+          image:
+            "https://static2.yan.vn/YanNews/2167221/202107/163646839_151261790203234_4588702925784176269_n-980bbe54.jpg",
+        },
+        {
+          name: "Hào",
+          image:
+            "https://static2.yan.vn/YanNews/2167221/202107/163646839_151261790203234_4588702925784176269_n-980bbe54.jpg",
+        },
+      ],
     };
   },
   methods: {
