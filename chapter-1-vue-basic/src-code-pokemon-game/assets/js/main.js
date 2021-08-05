@@ -2130,7 +2130,7 @@ const app = Vue.createApp({
       this.selectCards = [];
       this.pairedCards = [];
       this.gameData.badSelect = 10;
-      this.randomCardsPokemon(); // ✔
+      this.randomCardsPokemon(); // ✔ 🎶
     },
     createCardsPokemonByDeck(deck) {
       let cardsPokemon = [];
@@ -2159,7 +2159,6 @@ const app = Vue.createApp({
       let pokemonCardsRandom = pairsPokemon.sort(function () {
         return Math.random() - 0.5;
       });
-
       this.cards = pokemonCardsRandom;
     },
     hanldeWin() {
