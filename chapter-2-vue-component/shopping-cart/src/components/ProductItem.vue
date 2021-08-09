@@ -9,19 +9,41 @@
       <button class="btn btn-danger" @click="handleAddCart(productItem)">
         Mua
       </button>
-      <button class="btn btn-info ml-2">Chi Tiết</button>
+      <button class="btn btn-info ml-2" @click="handleOpenModal">
+        Chi Tiết
+      </button>
     </div>
+    <app-modal :isOpen="isOpenModal" :onClose="handleCloseModal">
+      <detail-product :productItem="productItem"></detail-product>
+    </app-modal>
   </div>
 </template>
 
 <script>
+import DetailProduct from "./DetailProduct.vue";
 export default {
+  components: {
+    DetailProduct,
+  },
   props: {
     productItem: {
       type: Object,
     },
     handleAddCart: {
       type: Function,
+    },
+  },
+  data() {
+    return {
+      isOpenModal: false,
+    };
+  },
+  methods: {
+    handleOpenModal() {
+      this.isOpenModal = true;
+    },
+    handleCloseModal() {
+      this.isOpenModal = false;
     },
   },
 };

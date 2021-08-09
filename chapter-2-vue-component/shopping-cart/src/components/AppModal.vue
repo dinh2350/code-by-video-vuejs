@@ -2,7 +2,7 @@
   <div v-if="isOpen" class="modal" @click="onClose">
     <div class="modal__container" @click.stop>
       <div class="modal__header">
-        <h1>Modal</h1>
+        <h1>Cart</h1>
         <div class="modal__close" @click="onClose">
           <i class="fa fa-times"></i>
         </div>
@@ -43,7 +43,7 @@ export default {
 
 .modal__container {
   z-index: 2;
-  width: 800px;
+  width: 950px;
   margin: auto;
   margin-top: 70px;
   background-color: white;

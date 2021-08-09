@@ -1,6 +1,11 @@
 <template>
   <header>
-    <the-header :cartList="cartList"></the-header>
+    <the-header
+      :cartList="cartList"
+      :sumAmountCart="sumAmountCart"
+      :handleUpOrDownAmount="handleUpOrDownAmount"
+      :handleRemoveCart="handleRemoveCart"
+    ></the-header>
   </header>
   <main class="container mt-3">
     <the-productsList
@@ -110,6 +115,14 @@ export default {
       cartList: [],
     };
   },
+  computed: {
+    sumAmountCart() {
+      return this.cartList.reduce(
+        (sum, cartItem) => (sum += cartItem.amount),
+        0
+      );
+    },
+  },
   methods: {
     handleAddCart(cart) {
       const index = this.cartList.findIndex(
@@ -124,6 +137,33 @@ export default {
         const newCart = { ...cart, amount: 1 };
         this.cartList.push(newCart);
       }
+    },
+    handleUpOrDownAmount(cart, isUp) {
+      const index = this.cartList.findIndex(
+        (product) => product.id === cart.id
+      );
+      if (index !== -1) {
+        if (isUp) {
+          if (
+            this.cartList[index].amount < this.cartList[index].quantityInStock
+          ) {
+            this.cartList[index].amount += 1;
+          } else {
+            alert("Vượt Quá Số Lượng Cho Phép!");
+          }
+        } else {
+          if (this.cartList[index].amount > 1) {
+            this.cartList[index].amount -= 1;
+          } else {
+            alert("Vượt Quá Số Lượng Cho Phép!");
+          }
+        }
+      }
+    },
+    handleRemoveCart(cart) {
+      this.cartList = this.cartList.filter(
+        (cartItem) => cartItem.id !== cart.id
+      );
     },
   },
 };

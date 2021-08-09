@@ -62,14 +62,18 @@
       <div class="ml-2 ">
         <button type="button" class="btn btn-danger" @click="handleOpenModal">
           <i class="fa fa-shopping-cart"></i>
-          <span class="badge badge-light ml-2">9</span>
+          <span class="badge badge-light ml-2">{{ sumAmountCart }}</span>
           <span class="sr-only">unread messages</span>
         </button>
       </div>
     </div>
   </nav>
   <app-modal :isOpen="isOpenModal" :onClose="handleCloseModal">
-    <cart-list :cartList="cartList"></cart-list>
+    <cart-list
+      :cartList="cartList"
+      :handleUpOrDownAmount="handleUpOrDownAmount"
+      :handleRemoveCart="handleRemoveCart"
+    ></cart-list>
   </app-modal>
 </template>
 
@@ -80,6 +84,15 @@ export default {
   props: {
     cartList: {
       type: Array,
+    },
+    sumAmountCart: {
+      type: Number,
+    },
+    handleUpOrDownAmount: {
+      type: Function,
+    },
+    handleRemoveCart: {
+      type: Function,
     },
   },
   data() {

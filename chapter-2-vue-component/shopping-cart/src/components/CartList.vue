@@ -7,6 +7,7 @@
         <th scope="col">Giá</th>
         <th scope="col">Số Lượng Trong Kho</th>
         <th scope="col">Số Lượng</th>
+        <th scope="col">Thành Tiền</th>
         <th scope="col">Hành Động</th>
       </tr>
     </thead>
@@ -17,21 +18,41 @@
         <td>{{ cart.price }}</td>
         <td>{{ cart.quantityInStock }}</td>
         <td>
-          <button class="btn btn-success">
+          <button
+            class="btn btn-success"
+            @click="handleUpOrDownAmount(cart, true)"
+          >
             <i class="fa fa-arrow-up"></i>
           </button>
           <span class="mx-2">{{ cart.amount }}</span>
-          <button class="btn btn-success">
+          <button
+            class="btn btn-success"
+            @click="handleUpOrDownAmount(cart, false)"
+          >
             <i class="fa fa-arrow-down"></i>
           </button>
         </td>
         <td>
-          <button class="btn btn-danger">
+          {{ cart.price * cart.amount }}
+        </td>
+        <td>
+          <button class="btn btn-danger" @click="handleRemoveCart(cart)">
             <i class="fa fa-trash"></i>
           </button>
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <th scope="row">Tổng Tiền</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        {{ totalMonney }}
+      </td>
+      <td></td>
+    </tfoot>
   </table>
 </template>
 
@@ -40,6 +61,20 @@ export default {
   props: {
     cartList: {
       type: Array,
+    },
+    handleUpOrDownAmount: {
+      type: Function,
+    },
+    handleRemoveCart: {
+      type: Function,
+    },
+  },
+  computed: {
+    totalMonney() {
+      return this.cartList.reduce(
+        (total, cart) => (total += cart.price * cart.amount),
+        0
+      );
     },
   },
 };
