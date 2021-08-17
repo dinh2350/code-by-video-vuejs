@@ -5,16 +5,24 @@
   <first-component></first-component>
   <first-component />
   <SecondComponent />
+  <ProductList />
 </template>
 
 <script>
 import FirstComponent from "./components/FirstComponent.vue";
 import SecondComponent from "./components/SecondComponent.vue";
+import ProductList from "./components/ProductList.vue";
 export default {
   name: "App",
   components: {
     FirstComponent, // FirstComponent : FirstComponent
     SecondComponent,
+    ProductList,
+  },
+  provide() {
+    return {
+      user: "Nguyễn Phong Hào",
+    };
   },
 };
 </script>
