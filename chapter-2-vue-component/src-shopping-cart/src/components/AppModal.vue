@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="modal" @click="onClose">
+  <div class="modal" v-if="isOpen"  @click="onClose">
     <div class="modal__container" @click.stop>
       <div class="modal__header">
         <h1>Cart</h1>
@@ -30,19 +30,16 @@ export default {
 
 <style scoped>
 .modal {
-  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
+  display: flex;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-
 .modal__container {
-  z-index: 2;
   width: 950px;
   margin: auto;
   margin-top: 70px;

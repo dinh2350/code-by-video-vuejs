@@ -1,5 +1,6 @@
 <template>
   <h1>First Component</h1>
+  <LocalComponent />
 </template>
 
 <script>

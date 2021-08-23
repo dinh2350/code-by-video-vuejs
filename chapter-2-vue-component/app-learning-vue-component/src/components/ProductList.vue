@@ -13,11 +13,17 @@
         />
       </div>
     </div>
+    <div>
+      <teleport to="body">
+        <base-modal />
+      </teleport>
+    </div>
   </section>
 </template>
 
 <script>
 import ProductItem from "./ProductItem.vue";
+import BaseModal from "./BaseModal.vue";
 export default {
   methods: {
     hanldeSelect(proItem) {
@@ -52,6 +58,7 @@ export default {
   },
   components: {
     ProductItem,
+    BaseModal,
   },
 };
 </script>
