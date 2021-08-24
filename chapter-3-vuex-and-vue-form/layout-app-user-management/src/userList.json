@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Hào",
+    "age": 23,
+    "email": "last@gmail.com",
+    "avatar": "https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-9/234641890_535236451077317_955204568529470100_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=2pIGJ6DMRxUAX_DfjRW&_nc_ht=scontent.fsgn2-2.fna&oh=cdf1a2a66242d2ba9901998784328908&oe=614A7E72",
+    "description": "textare",
+    "programmingLanguage": ["JS", "php", "JAVA", "C", "PYTHON"],
+    "gender": "Nam|Nữ|LBGT",
+    "typeUser": "ADMIN|CLIENT"
+  }
+]
