@@ -71,14 +71,27 @@
       :handelCloseModal="handleCloseModalCartList"
     >
       <section>
-        <h1>Nội Dung Danh Sách Giỏ Hàng</h1>
+        <cart-list
+          :cartList="cartList"
+          @hanlde-delete-cart="handleDelete"
+          @hanlde-up-or-down-amount-cart="handleUpOrDownAmount"
+        />
       </section>
     </app-modal>
   </teleport>
 </template>
 
 <script>
+import CartList from "./CartList.vue";
 export default {
+  props: {
+    cartList: {
+      type: Array,
+    },
+  },
+  components: {
+    CartList,
+  },
   data() {
     return {
       isOpenModalCartList: false, // đóng modal
@@ -90,6 +103,13 @@ export default {
     },
     handleCloseModalCartList() {
       this.isOpenModalCartList = false; // đóng modal
+    },
+    handleDelete(cart) {
+      this.$emit("hanlde-delete-cart", cart);
+    },
+    handleUpOrDownAmount(params) {
+      console.log(params);
+      this.$emit("hanlde-up-or-down-amount-cart", params);
     },
   },
 };

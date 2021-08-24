@@ -9,7 +9,7 @@
         :key="index"
         class="col-lg-3"
       >
-        <product-item :productItem="productItem" />
+        <product-item :productItem="productItem" @hanlde-buy="hanldeBuy" />
       </div>
     </div>
   </section>
@@ -107,6 +107,12 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    hanldeBuy(productItem) {
+      console.log(productItem);
+      this.$emit("hanlde-buy", productItem);
+    },
   },
 };
 </script>

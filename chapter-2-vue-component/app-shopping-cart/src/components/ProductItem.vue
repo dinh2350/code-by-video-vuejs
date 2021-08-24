@@ -8,7 +8,9 @@
       </p>
     </div>
     <div class="mb-2">
-      <button class="btn btn-danger ml-2">Mua</button>
+      <button class="btn btn-danger ml-2" @click="hanldeBuy(productItem)">
+        Mua
+      </button>
       <button class="btn btn-info ml-2">Chi Tiết</button>
     </div>
   </div>
@@ -19,6 +21,12 @@ export default {
   props: {
     productItem: {
       type: Object,
+    },
+  },
+  methods: {
+    hanldeBuy(productItem) {
+      console.log(productItem);
+      this.$emit("hanlde-buy", productItem);
     },
   },
 };
