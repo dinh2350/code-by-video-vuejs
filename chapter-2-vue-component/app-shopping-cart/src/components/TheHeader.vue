@@ -60,7 +60,7 @@
       <div class="ml-2">
         <button class="btn btn-danger" @click="handleOpenModalCartList">
           <i class="fa fa-shopping-cart"></i>
-          <span class="badge badge-light ml-2">0</span>
+          <span class="badge badge-light ml-2">{{ sumAmountCart }}</span>
         </button>
       </div>
     </div>
@@ -87,6 +87,11 @@ export default {
   props: {
     cartList: {
       type: Array,
+    },
+  },
+  computed: {
+    sumAmountCart() {
+      return this.cartList.reduce((sum, cart) => (sum += cart.amount), 0);
     },
   },
   components: {
